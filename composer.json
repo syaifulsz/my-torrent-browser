@@ -1,0 +1,22 @@
+{
+    "name": "syaifulsz/my-torrent-browser",
+    "license": "MIT",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Syaiful Shah Zinan",
+            "email": "i.works@live.com",
+            "homepage": "https://github.com/syaifulsz"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "guzzlehttp/guzzle": "^6.3",
+        "imangazaliev/didom": "^1.13"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/"
+        }
+    }
+}
