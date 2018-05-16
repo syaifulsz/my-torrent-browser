@@ -2,14 +2,14 @@
 
 namespace App\Controllers;
 
-use App\Services\API\Torrent as TorrentAPI;
+use App\Services\API\Torrent as Torrent;
 
-class Torrent extends Controller
+class TorrentAPI extends Controller
 {
     protected $service;
     public function __construct()
     {
-        $this->service = new TorrentAPI();
+        $this->service = new Torrent();
     }
 
     public function index()
