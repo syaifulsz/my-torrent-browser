@@ -1,24 +1,18 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Services\API;
 
 // models
 use App\Models\Movie;
 
 // vendors
-use GuzzleHttp\Client;
 use DiDom\Document;
 
-class API extends Controller
+class Torrent extends API
 {
-    private $client;
-    private $doc;
-
-    public function __construct()
+    public function __construct($apiBaseUri = 'https://1337x.to')
     {
-        $this->client = new Client([
-            'base_uri' => 'https://1337x.to'
-        ]);
+        return parent::__construct($apiBaseUri);
     }
 
     public function get_source_search($keyword)
