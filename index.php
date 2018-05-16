@@ -2,7 +2,10 @@
 
 require 'vendor/autoload.php';
 
-const VIEW_DIR = __DIR__ . '/App/Views';
+const ROOT_DIR  = __DIR__;
+const APP_DIR   = __DIR__ . '/App';
+const VIEW_DIR  = __DIR__ . '/App/Views';
+const CACHE_DIR = __DIR__ . '/App/Cache';
 
 /**
  * Check route name via server http request
