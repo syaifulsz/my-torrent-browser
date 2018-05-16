@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <div class="container mt-5">
+    <div class="container mt-5 mb-5">
 
         <form class="form js-torrent-form">
             <div class="form-group">
@@ -25,19 +25,15 @@
         <div class="list-group js-torrent-result d-none"></div>
 
         <div class="trending-movies mt-5">
-            <div>Trending Movies <small class="text-muted">(from YTS.to)</small></div>
-            <hr>
-            <div class="row">
-                <?php foreach ($trendingMovies as $movie) : ?>
-                    <div class="col-6 col-md-2 mb-4">
-                        <a href="#" class="js-trending-movie-btn" data-keyword="<?= $movie->getKeyword() ?>" title="<?= $movie->getDisplayTitle() ?>">
-                            <img class="img-thumbnail1 img-fluid rounded" src="<?= $movie->getImageUrl() ?>" alt="<?= $movie->getDisplayTitle() ?>">
-                        </a>
-                    </div>
-                <?php endforeach ?>
+            <div class="mb-2">Trending Movies <small class="text-muted">(from YTS.to)</small></div>
+            <div class="list-group">
+              <?php foreach ($trendingMovies as $movie) : ?>
+                  <a href="#" class="list-group-item list-group-item-action js-trending-movie-btn" data-keyword="<?= $movie->getKeyword() ?>" title="<?= $movie->getDisplayTitle() ?>">
+                      <?= $movie->getDisplayTitle() ?>
+                  </a>
+              <?php endforeach ?>
             </div>
         </div>
-
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
