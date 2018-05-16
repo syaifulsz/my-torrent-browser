@@ -152,6 +152,9 @@
         var keyword = $this.data('keyword');
         console.log(keyword);
 
+        $('html, body').animate({
+            scrollTop: 0
+        }, 100);
         $search.val(keyword);
         $form.submit();
     });
