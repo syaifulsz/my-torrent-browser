@@ -4,6 +4,12 @@ require 'vendor/autoload.php';
 
 const VIEW_DIR = __DIR__ . '/App/Views';
 
+/**
+ * Check route name via server http request
+ *
+ * @param  string  $route
+ * @return boolean
+ */
 function isRoute($route)
 {
     $request_uri = explode('?', $_SERVER['REQUEST_URI'], 2);
@@ -16,6 +22,19 @@ function isRoute($route)
     return ($request_route === $route);
 }
 
+/**
+ * Check if request is Ajax
+ *
+ * @return boolean
+ */
+function isAjax()
+{
+    return (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest');
+}
+
+/**
+ * Register Routes
+ */
 switch (true) {
 
     case isRoute('/'):
@@ -23,10 +42,16 @@ switch (true) {
         $controller->index();
         break;
 
+    // case isRoute('/test'):
+    //     $controller = new \App\Controllers\Site();
+    //     $controller->suggestion();
+    //     break;
+
     case isRoute('/api'):
 
-        if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
-            $controller = new \App\Controllers\TorrentAPI();
+        // only allow ajax requests
+        if (isAjax()) {
+            $controller = new \App\Controllers\AjaxAPI();
             $controller->index();
         }
         header('HTTP/1.0 404 Not Found');

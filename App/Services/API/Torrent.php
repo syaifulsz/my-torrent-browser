@@ -73,7 +73,7 @@ class Torrent extends API
                 $exp_size = explode(' ', $size[0]->text());
                 $scrapped_list[] = new Movie([
                     'url' => $title->getAttribute('href'),
-                    'title' => $title->innerHtml(),
+                    'title' => $title->text(),
                     'size' => $exp_size[0],
                     'seed' => $seed[0]->innerHtml(),
                     'leeches' => $leeches[0]->innerHtml(),

@@ -2,9 +2,9 @@
 
 namespace App\Controllers;
 
-use App\Services\API\Torrent as Torrent;
+use App\Services\API\Torrent;
 
-class TorrentAPI extends Controller
+class AjaxAPI extends Controller
 {
     protected $service;
     public function __construct()

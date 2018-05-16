@@ -11,7 +11,6 @@
     <div class="container mt-5">
 
         <form class="form js-torrent-form">
-
             <div class="form-group">
                 <label for="">Find Torrent</label>
                 <div class="input-group mb-3">
@@ -24,6 +23,20 @@
         </form>
 
         <div class="list-group js-torrent-result d-none"></div>
+
+        <div class="trending-movies mt-5">
+            <div>Trending Movies <small class="text-muted">(from YTS.to)</small></div>
+            <hr>
+            <div class="row">
+                <?php foreach ($trendingMovies as $movie) : ?>
+                    <div class="col-6 col-md-2 mb-4">
+                        <a href="#" class="js-trending-movie-btn" data-keyword="<?= $movie->getKeyword() ?>" title="<?= $movie->getDisplayTitle() ?>">
+                            <img class="img-thumbnail1 img-fluid rounded" src="<?= $movie->getImageUrl() ?>" alt="<?= $movie->getDisplayTitle() ?>">
+                        </a>
+                    </div>
+                <?php endforeach ?>
+            </div>
+        </div>
 
     </div>
 
@@ -131,6 +144,16 @@
                 console.log('ERROR', a, b, c, d);
             }
         });
+    });
+
+    $('.js-trending-movie-btn').on('click', function(e) {
+        e.preventDefault();
+        var $this = $(this);
+        var keyword = $this.data('keyword');
+        console.log(keyword);
+
+        $search.val(keyword);
+        $form.submit();
     });
 
     </script>
