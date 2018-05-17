@@ -60,14 +60,6 @@ class Cache
     public function removeAll()
     {
         $count = 0;
-
-        $cacheFiles = glob(CACHE_DIR . '/*.cache');
-        foreach($cacheFiles as $file) {
-            if (unlink($cacheFile)) {
-                $count++;
-            }
-        }
-
-        return $count ? true : false;
+        return array_map('unlink', glob(CACHE_DIR . '/*.cache'));
     }
 }
